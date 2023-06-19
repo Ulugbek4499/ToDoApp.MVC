@@ -5,7 +5,6 @@ namespace ToDoApp.Application.Commons.Models
 {
     public class ToDoItemDto
     {
-        [JsonPropertyName("todoitem_id")]
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
