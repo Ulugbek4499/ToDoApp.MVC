@@ -10,8 +10,8 @@ namespace ToDoApp.Application.Interfaces
 {
     public interface IApplicationDbContext
     {
-        public DbSet<ToDoList> Departments { get; set; }
-        public DbSet<ToDoItem> Employees { get; set; }
+        public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<ToDoItem> ToDoItems { get; set; }
      
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
