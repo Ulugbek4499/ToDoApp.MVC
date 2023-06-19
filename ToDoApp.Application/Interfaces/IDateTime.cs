@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Interfaces
 {
-    internal interface IDateTime
+    public interface IDateTime
     {
+        DateTime Now { get; }
     }
 }

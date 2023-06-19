@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Interfaces
 {
-    internal interface IGuidGenerator
+    public interface IGuidGenerator
     {
+        Guid Guid { get; }
     }
 }
