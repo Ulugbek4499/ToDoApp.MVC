@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems
 {
-    internal class GetToDoItemQuery
+    internal class GetToDoItemsQuery
     {
     }
 }

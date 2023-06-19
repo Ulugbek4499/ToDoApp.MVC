@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.Application.Interfaces
+namespace ToDoApp.Application.Commons.Interfaces
 {
     public interface IGuidGenerator
     {

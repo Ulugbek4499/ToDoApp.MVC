@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Serilog;
 
-namespace ToDoApp.Application.Behaviours
+namespace ToDoApp.Application.Commons.Behaviours
 {
     public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
     {

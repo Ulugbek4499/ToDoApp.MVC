@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToDoApp.Application.Exceptions
+﻿namespace ToDoApp.Application.Commons.Exceptions
 {
-    internal class AlreadyExistsException
+    public class AlreadyExistsException : Exception
     {
+        public AlreadyExistsException()
+            : base() { }
+
+        public AlreadyExistsException(string name, string key)
+            : base($"Entity \"{name}\" ({key}) already exists") { }
     }
 }

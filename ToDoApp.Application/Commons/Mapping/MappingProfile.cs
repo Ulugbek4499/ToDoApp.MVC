@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using ToDoApp.Domain.Entities;
 
-namespace ToDoApp.Application.Mapping
+namespace ToDoApp.Application.Commons.Mapping
 {
     public class MappingProfile : Profile
     {
