@@ -1,8 +1,9 @@
-﻿using ToDoApp.Domain.States;
+﻿using ToDoApp.Domain.Common;
+using ToDoApp.Domain.States;
 
 namespace ToDoApp.Domain.Entities
 {
-    public class ToDoItem
+    public class ToDoItem: BaseAuditableEntity
     {
         public string Title { get; set; }
         public string Description { get; set; }

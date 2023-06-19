@@ -1,6 +1,8 @@
-﻿namespace ToDoApp.Domain.Entities
+﻿using ToDoApp.Domain.Common;
+
+namespace ToDoApp.Domain.Entities
 {
-    public class ToDoList
+    public class ToDoList: BaseAuditableEntity
     {
         public string Name { get; set; }
         public ICollection<ToDoItem> ToDoItems { get; set; }

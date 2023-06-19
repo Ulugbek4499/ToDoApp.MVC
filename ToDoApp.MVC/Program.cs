@@ -1,3 +1,6 @@
+/*using ToDoApp.Infrastructure;
+using ToDoApp.Application;*/
+
 namespace ToDoApp.MVC
 {
     public class Program
@@ -8,6 +11,8 @@ namespace ToDoApp.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+     /*       builder.Services.AddInfrastructureService(builder.Configuration);
+            builder.Services.AddApplicationService();*/
 
             var app = builder.Build();
 

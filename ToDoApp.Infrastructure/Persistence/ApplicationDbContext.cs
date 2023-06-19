@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Reflection;
 using ToDoApp.Application.Commons.Interfaces;
 using ToDoApp.Domain.Entities;
 using ToDoApp.Infrastructure.Persistence.Interceptors;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoApp.Infrastructure.Persistence
 {
