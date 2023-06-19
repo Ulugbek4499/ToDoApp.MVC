@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
 {
-    public class UpdateToDoItemCommandValidator:AbstractValidator<UpdateToDoItemCommand>
+    public class UpdateToDoItemCommandValidator : AbstractValidator<UpdateToDoItemCommand>
     {
         public UpdateToDoItemCommandValidator()
         {

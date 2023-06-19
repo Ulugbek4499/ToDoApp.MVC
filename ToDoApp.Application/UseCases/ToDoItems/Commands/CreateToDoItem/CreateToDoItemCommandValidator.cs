@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
-using FluentValidation.Validators;
+﻿using FluentValidation;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
 {
-    public class CreateToDoItemCommandValidator:AbstractValidator<CreateToDoItemCommand>
+    public class CreateToDoItemCommandValidator : AbstractValidator<CreateToDoItemCommand>
     {
         public CreateToDoItemCommandValidator()
         {

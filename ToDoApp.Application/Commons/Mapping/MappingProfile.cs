@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using ToDoApp.Application.Commons.Models;
 using ToDoApp.Domain.Entities;
 
 namespace ToDoApp.Application.Commons.Mapping
@@ -12,8 +13,8 @@ namespace ToDoApp.Application.Commons.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<ToDoItem, ToDoItem>().ReverseMap();
-            CreateMap<ToDoList, ToDoItem>().ReverseMap();
+            CreateMap<ToDoItem, ToDoItemDto>().ReverseMap();
+            CreateMap<ToDoList, ToDoItemDto>().ReverseMap();
         }
     }
 }

@@ -8,7 +8,7 @@ using ToDoApp.Domain.States;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
 {
-    public class CreateToDoItemCommand: IRequest<ToDoItemDto>
+    public class CreateToDoItemCommand : IRequest<ToDoItemDto>
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -35,13 +35,13 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
 
             ValidateToDoListIsNotNull(request, maybeTodoList);
 
-            var toDoItem=new ToDoItem()
+            var toDoItem = new ToDoItem()
             {
-                Title=request.Title,
-                Description=request.Description,
-                DueDate=request.DueDate,
-                ToDoItemStatus=request.ToDoItemStatus,
-                ToDoList=maybeTodoList
+                Title = request.Title,
+                Description = request.Description,
+                DueDate = request.DueDate,
+                ToDoItemStatus = request.ToDoItemStatus,
+                ToDoList = maybeTodoList
             };
 
 

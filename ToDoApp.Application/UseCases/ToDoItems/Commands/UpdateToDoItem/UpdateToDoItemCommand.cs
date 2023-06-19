@@ -8,7 +8,7 @@ using ToDoApp.Domain.States;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
 {
-    public class UpdateToDoItemCommand:IRequest<ToDoItemDto>
+    public class UpdateToDoItemCommand : IRequest<ToDoItemDto>
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -43,8 +43,8 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
 
             maybeToDoItem.Title = request.Title;
             maybeToDoItem.Description = request.Description;
-            maybeToDoItem.DueDate=request.DueDate;
-            maybeToDoItem.ToDoItemStatus=request.ToDoItemStatus;
+            maybeToDoItem.DueDate = request.DueDate;
+            maybeToDoItem.ToDoItemStatus = request.ToDoItemStatus;
             maybeToDoItem.ToDoList = maybeToDoList;
 
             await _context.SaveChangesAsync(cancellationToken);
