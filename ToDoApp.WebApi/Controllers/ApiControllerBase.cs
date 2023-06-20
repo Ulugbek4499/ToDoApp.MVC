@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿/*using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ToDoApp.WebApi.Controllers
@@ -13,3 +13,4 @@ namespace ToDoApp.WebApi.Controllers
          => HttpContext.RequestServices.GetRequiredService<IWebHostEnvironment>();
     }
 }
+*/

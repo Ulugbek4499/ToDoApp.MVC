@@ -1,4 +1,4 @@
-namespace ToDoApp.MVC.Models
+namespace ToDoApp.MVC.UI.Models
 {
     public class ErrorViewModel
     {

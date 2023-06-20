@@ -9,7 +9,7 @@ namespace ToDoApp.Application.Commons.Mapping
         public MappingProfile()
         {
             CreateMap<ToDoItem, ToDoItemDto>().ReverseMap();
-            CreateMap<ToDoList, ToDoItemDto>().ReverseMap();
+            CreateMap<ToDoList, ToDoListDto>().ReverseMap();
         }
     }
 }

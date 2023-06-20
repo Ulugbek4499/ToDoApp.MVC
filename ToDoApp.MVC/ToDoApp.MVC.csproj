@@ -7,10 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\ToDoItem\DeleteToDoItem.cshtml" />
+    <Content Remove="Views\ToDoItem\EditToDoItem.cshtml" />
+    <Content Remove="Views\ToDoList\AddToDoList.cshtml" />
+    <Content Remove="Views\ToDoList\DeleteToDoItem.cshtml" />
+    <Content Remove="Views\ToDoList\EditToDoList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Views\ToDoItem\DeleteToDoItem.cshtml" />
+    <Compile Include="Views\ToDoItem\EditToDoItem.cshtml" />
+    <Compile Include="Views\ToDoList\AddToDoList.cshtml" />
+    <Compile Include="Views\ToDoList\DeleteToDoItem.cshtml" />
+    <Compile Include="Views\ToDoList\EditToDoList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.Infrastructure\ToDoApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
