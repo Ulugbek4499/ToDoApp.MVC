@@ -1,0 +1,20 @@
+﻿@using ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList
+
+@{
+    ViewData["Title"] = "CreateToDoList";
+    Layout = "_Layout";
+}
+
+@model CreateToDoListCommand
+
+<h3>Create ToDoList</h3>
+
+<form asp-action="CreateToDoList" method="post">
+    <div class="form-group">
+        <label asp-for="Name">ToDoList Name:</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
