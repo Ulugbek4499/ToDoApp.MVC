@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Application.Commons.Models;
 using ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Commands.DeleteToDoList;
@@ -44,4 +44,3 @@ namespace ToDoApp.WebApi.Controllers
         }
     }
 }
-*/

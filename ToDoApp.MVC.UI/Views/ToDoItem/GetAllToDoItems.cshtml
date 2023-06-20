@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model ToDoApp.Application.Commons.Models.ToDoItemDto[]
+
+<h3 class="text-center">All ToDoLists </h3>
+<hr />
+
+<div class="custom-cards">
+
+    @{
+        if (Model.Length == 0)
+        {
+            <h2>There is no list item yet...</h2>
+        }
+    }
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Title</th>
+                    <th style="width: 40%;">DueDate</th>
+                    <th style="width: 40%;">ItemStatus</th>
+                    <th style="width: 10%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var toDoItem in Model)
+                {
+                    <tr>
+                        <td>@toDoItem.Title</td>
+                        <td>@toDoItem.DueDate</td>
+                        <td>@toDoItem.ToDoItemStatus</td>
+                        <td class="action-links">
+                            <a href="@Url.Action("Update", toDoItem)">Edit</a>
+                            <a href="@Url.Action("Details", new { id = toDoItem.Id })">Details</a>
+                            <a href="@Url.Action("Delete", new { id = toDoItem.Id })">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

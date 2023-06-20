@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model ToDoListDto
+
+<a asp-controller="blog" asp-action="index" class="btn btn-secondary back"><i class="las la-arrow-left"></i> Back to home</a>
+<hr />
+
+
+<div class="post-view">
+    <div class="card mb-3" style="max-width: 940px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body m-3">
+                    <h5 class="card-title">@Model.Name</h5>
+                    <p class="card-text">
+                        @Model.ToDoItems
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40%;">Title</th>
+                                        <th style="width: 40%;">Description</th>
+                                        <th style="width: 40%;">DueDate</th>
+                                        <th style="width: 40%;">ItemStatus</th>
+                                        <th style="width: 40%;">CreatedDate</th>
+                                        <th style="width: 10%;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var toDoItem in Model.ToDoItems)
+                                    {
+                                        <tr>
+                                            <td>@toDoItem.Title</td>
+                                            <td>@toDoItem.DueDate</td>
+                                            <td>@toDoItem.ToDoItemStatus</td>
+                                            <td class="action-links">
+                                                <a href="@Url.Action("Update", toDoItem)">Edit</a>
+                                                <a href="@Url.Action("Details", new { id = toDoItem.Id })">Details</a>
+                                                <a href="@Url.Action("Delete", new { id = toDoItem.Id })">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <div class="la-group">
+                                <a asp-controller="blog" asp-action="editpost" asp-route-id="@Model.Id" class="btn btn-primary mx-2"><i class="las la-edit"></i>Edit</a>
+                                <a asp-controller="blog" asp-action="deletepost" asp-route-id="@Model.Id" onclick="return confirm('Are you sure delete this post?');" class="btn btn-danger mx-2"><i class="las la-trash"></i>Delete</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

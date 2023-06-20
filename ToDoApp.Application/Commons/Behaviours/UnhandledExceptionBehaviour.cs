@@ -7,18 +7,18 @@ namespace ToDoApp.Application.Commons.Behaviours
     {
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            try
-            {
+            //try
+            //{
                 return await next();
-            }
-            catch (Exception ex)
-            {
-                var requestName = typeof(TRequest).Name;
+            //}
+            //catch (Exception ex)
+            //{
+            //    var requestName = typeof(TRequest).Name;
 
-                Log.Error(ex, $"HRMS Request: Unhandled Exception for Request {requestName} {request}\n");
+            //    Log.Error(ex, $"HRMS Request: Unhandled Exception for Request {requestName} {request}\n");
 
-                throw;
-            }
+            //    throw;
+            //}
         }
     }
 }

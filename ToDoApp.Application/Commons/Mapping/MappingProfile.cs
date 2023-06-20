@@ -8,8 +8,8 @@ namespace ToDoApp.Application.Commons.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<ToDoItem, ToDoItemDto>().ReverseMap();
             CreateMap<ToDoList, ToDoListDto>().ReverseMap();
+            CreateMap<ToDoItem, ToDoItemDto>().ReverseMap();
         }
     }
 }

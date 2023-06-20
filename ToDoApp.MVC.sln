@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.UnitTests", "ToDoAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.WebApi", "ToDoApp.WebApi\ToDoApp.WebApi.csproj", "{815AA220-372A-4B73-8C54-DF0D17FA79DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.MVC.UI", "ToDoApp.MVC.UI\ToDoApp.MVC.UI.csproj", "{18DF1912-DC6D-4097-B298-6AEEB6240E52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.MVC.UI", "ToDoApp.MVC.UI\ToDoApp.MVC.UI.csproj", "{18DF1912-DC6D-4097-B298-6AEEB6240E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

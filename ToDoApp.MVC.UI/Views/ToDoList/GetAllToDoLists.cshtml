@@ -1,7 +1,8 @@
 ﻿@{
     Layout = "_Layout";
 }
-@model List<ToDoListDto>
+
+@model ToDoApp.Application.Commons.Models.ToDoListDto[]
 
 <h3 class="text-center">All ToDoLists </h3>
 <hr />
@@ -9,21 +10,33 @@
 <div class="custom-cards">
 
     @{
-        if (Model.Count == 0)
+        if (Model.Length == 0)
         {
             <h2>There is no post yet...</h2>
         }
     }
 
-    @foreach (var toDoList in Model)
-    {
-        <div class="card m-1 d-inline" style="width: 27%;">
-            <div class="card-body custom-card">
-                <h5 class="card-title">@toDoList.Name</h5>
-                <a asp-controller="blog" asp-action="viewpost" asp-route-id="@toDoList.Id" class="btn btn-primary">
-                    <i class="las la-angle-double-right">
-                    </i>Read More</a>
-            </div>
-        </div>
-    }
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">ToDoList </th>
+                    <th style="width: 40%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var toDoList in Model)
+                {
+                    <tr>
+                        <td>@toDoList.Name</td>
+                        <td class="action-links">
+                            <a href="@Url.Action("Update", toDoList)">Edit</a>
+                            <a href="@Url.Action("Details", new { id = toDoList.Id })">Details</a>
+                            <a href="@Url.Action("Delete", new { id = toDoList.Id })">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
