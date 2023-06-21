@@ -3,7 +3,7 @@ using ToDoApp.Domain.States;
 
 namespace ToDoApp.Domain.Entities
 {
-    public class ToDoItem: BaseAuditableEntity
+    public class ToDoItem : BaseAuditableEntity
     {
         public string Title { get; set; }
         public string Description { get; set; }

@@ -1,26 +1,46 @@
-﻿@using ToDoApp.Application.UseCases.ToDoLists.Commands.UpdateToDoList;
-@using ToDoApp.Application.Commons.Models;
-@using ToDoApp.Domain.Entities;
-
-@{
-    ViewData["Title"] = "EditToDoList";
+﻿@{
     Layout = "_Layout";
 }
+@using ToDoApp.MVC.UI.Models
 
-@model ToDoListDto
+@model EditToDoListModelView
 
-<h1>Edit ToDoList</h1>
+<h3 class="text-center">Add new  ToDolist</h3>
+<hr />
 
-<div class="form-container">
-    <form asp-action="UpdateToDoList" method="post">
-        <input type="hidden" asp-for="Id" />
-
-        <div class="form-group">
-            <label asp-for="Name">Name:</label>
-            <input asp-for="Name" class="form-control" required value="@Model.Name" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+<form asp-controller="ToDoList" asp-action="EditToDoList" enctype="multipart/form-data" method="post">
+    <div class="container mt-3 custom-input">
+        <label asp-for="Name" class="form-label">Name</label>
+        <div class="input-group mb-3">
+            <input asp-for="Name" type="text" class="form-control" value="@Model.Name">
         </div>
+        <span asp-validation-for="Name" class="text-danger"></span><br>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-</div>
+        <input hidden asp-for="Id" />
+    </div>
+
+    <div class="button-group">
+        <a class="btn btn-dark">Cancel</a>
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+</form>
+
+
+@*<h3 class="text-center">Add new post</h3>
+<hr />
+<form enctype="multipart/form-data" method="post">
+    <div class="container mt-3 custom-input">
+        <label asp-for="Name" class="form-label">Name</label>
+        <div class="input-group mb-3">
+            <input asp-for="Name" type="text" class="form-control" value="@Model.Name">
+        </div>
+        <span asp-validation-for="Name" class="text-danger"></span><br>
+
+        <input asp-for="Id" hidden asp-route="@Model.Id" />
+    </div>
+
+    <div class="button-group">
+        <a class="btn btn-dark">Cancel</a>
+        <button asp-controller="ToDoList" asp-action="EditToDoList" type="submit" class="btn btn-success">Save</button>
+    </div>
+</form>*@

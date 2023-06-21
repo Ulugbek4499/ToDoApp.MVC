@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Serilog;
 
 namespace ToDoApp.Application.Commons.Behaviours
 {
@@ -9,7 +8,7 @@ namespace ToDoApp.Application.Commons.Behaviours
         {
             //try
             //{
-                return await next();
+            return await next();
             //}
             //catch (Exception ex)
             //{

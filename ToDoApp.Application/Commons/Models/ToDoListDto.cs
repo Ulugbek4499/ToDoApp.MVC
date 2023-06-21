@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace ToDoApp.Application.Commons.Models
+﻿namespace ToDoApp.Application.Commons.Models
 {
     public class ToDoListDto
     {

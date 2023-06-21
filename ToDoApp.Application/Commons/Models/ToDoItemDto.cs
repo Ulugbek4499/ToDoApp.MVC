@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using ToDoApp.Domain.States;
+﻿using ToDoApp.Domain.States;
 
 namespace ToDoApp.Application.Commons.Models
 {

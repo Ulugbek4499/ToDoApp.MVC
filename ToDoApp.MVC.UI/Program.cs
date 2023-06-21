@@ -1,5 +1,5 @@
-using ToDoApp.Infrastructure;
 using ToDoApp.Application;
+using ToDoApp.Infrastructure;
 
 namespace ToDoApp.MVC.UI
 {

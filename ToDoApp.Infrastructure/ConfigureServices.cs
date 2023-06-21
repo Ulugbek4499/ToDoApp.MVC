@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoApp.Application.Commons.Interfaces;
-using ToDoApp.Infrastructure.Persistence.Interceptors;
 using ToDoApp.Infrastructure.Persistence;
+using ToDoApp.Infrastructure.Persistence.Interceptors;
 using ToDoApp.Infrastructure.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace ToDoApp.Infrastructure
 {
