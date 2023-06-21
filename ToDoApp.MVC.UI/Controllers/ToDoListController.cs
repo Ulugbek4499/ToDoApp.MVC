@@ -54,7 +54,7 @@ namespace ToDoApp.MVC.Controllers
             return RedirectToAction("GetAllToDoLists");
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> EditToDoList(Guid id)
         {
             var toDoList = await Mediator.Send(new GetToDoListQuery(id));
@@ -68,7 +68,7 @@ namespace ToDoApp.MVC.Controllers
             return View(modelView);
         }
 
-        [HttpPost]
+        [HttpPost("[action]")]
         public async ValueTask<IActionResult> EditToDoList(EditToDoListModelView modelView)
         {
             if (ModelState.IsValid)
@@ -84,6 +84,7 @@ namespace ToDoApp.MVC.Controllers
             }
             return View();
         }
+
         public async ValueTask<IActionResult> DeleteToDoList(Guid Id)
         {
             await Mediator.Send(new DeleteToDoListCommand(Id));

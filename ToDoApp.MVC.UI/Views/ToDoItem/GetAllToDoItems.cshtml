@@ -35,7 +35,7 @@
                         <td>@toDoItem.ToDoItemStatus</td>
                         <td class="action-links">
                             <a href="@Url.Action("Update", toDoItem)">Edit</a>
-                            <a href="@Url.Action("Details", new { id = toDoItem.Id })">Details</a>
+                            <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })">Details</a>
                             <a href="@Url.Action("Delete", new { id = toDoItem.Id })">Delete</a>
                         </td>
                     </tr>
@@ -44,3 +44,7 @@
         </table>
     </div>
 </div>
+
+<p>
+    <a href="@Url.Action("CreateToDoItem")" class="btn btn-primary">CreateToDoItem</a>
+</p>

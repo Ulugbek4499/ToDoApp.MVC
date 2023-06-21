@@ -4,6 +4,7 @@ using ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.DeleteToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
+using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoLists;
 using ToDoApp.MVC.Controllers;
 
 namespace ToDoApp.MVC.UI.Controllers
@@ -13,18 +14,21 @@ namespace ToDoApp.MVC.UI.Controllers
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> CreateToDoItem()
         {
+            ToDoListDto[] toDoLists = await Mediator.Send(new GetToDoListsQuery());
+            ViewData["ToDoLists"] = toDoLists;
             return View();
         }
 
-        [HttpPost("[action]")]
-        public async ValueTask<IActionResult> CreateToDoItem([FromForm] CreateToDoItemCommand ToDoItem)
-        {
-            await Mediator.Send(ToDoItem);
 
+        [HttpPost("[action]")]
+        public async ValueTask<IActionResult> CreateToDoItem([FromForm] CreateToDoItemCommand toDoItem)
+        {
+            await Mediator.Send(toDoItem);
             return RedirectToAction("GetAllToDoItems");
         }
 
-        [HttpGet]
+
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> GetAllToDoItems()
         {
             ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsQuery());
