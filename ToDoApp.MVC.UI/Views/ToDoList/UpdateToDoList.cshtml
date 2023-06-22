@@ -8,22 +8,24 @@
    // Layout = "_Layout";
 }
 
+<h3 class="text-center">Edit ToDoList</h3>
+<hr />
 
-<h1>Edit ToDoList</h1>
+<form asp-controller="ToDoList" asp-action="UpdateToDoList" enctype="multipart/form-data" method="post">
+    <input type="hidden" asp-for="Id" />
 
-<div class="form-container">
-    <form asp-action="UpdateToDoList" asp-controller="ToDoList" method="post" enctype="multipart/form-data">
-        <input type="hidden" asp-for="Id" />
+            <div class="container mt-3 custom-input">
+        <label asp-for="Name" class="form-label">ToDoList Name</label>
+                <div class="input-group mb-3">
+            <input asp-for="Name" type="text" class="form-control" value="@Model.Name">
+                </div>
+        <span asp-validation-for="Name" class="text-danger"></span><br>
 
-        <div class="form-group">
-            <label asp-for="Name">Name:</label>
-            <input asp-for="Name" class="form-control" required value="@Model.Name" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="button-group">
+            <a class="btn btn-dark">Cancel</a>
+            <button type="submit" class="btn btn-success">Save</button>
         </div>
-
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-</div>
+</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
