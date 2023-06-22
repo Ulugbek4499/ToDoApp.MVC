@@ -1,0 +1,66 @@
+﻿@using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
+@using ToDoApp.Application.Commons.Models;
+@using ToDoApp.Domain.Entities;
+@using ToDoApp.Domain.States;
+@model ToDoItemDto
+
+@{
+    ViewData["Title"] = "UpdateToDoItem";
+    // Layout = "_Layout";
+    ToDoListDto[] ToDoLists = ViewData["ToDoLists"] as ToDoListDto[];
+}
+
+<h1>Edit ToDoItem</h1>
+
+<div class="form-container">
+    <form asp-action="UpdateToDoItem" asp-controller="ToDoItem" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" class="form-control" required value="@Model.Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description:</label>
+            <input asp-for="Description" class="form-control" required value="@Model.Description" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DueDate">Birth Date:</label>
+            <input asp-for="DueDate" type="date" class="form-control" required value="@Model.DueDate.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="DueDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label for="ToDoListID">ToDoList:</label>
+            <select class="form-control" id="ToDoListID" name="ToDoListID" required>
+                <option value="">Choose ToDoList</option>
+                @foreach (var toDoList in ToDoLists)
+                {
+                    <option value="@toDoList.Id">@toDoList.Name </option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ToDoItemStatus">Status:</label>
+            <select asp-for="ToDoItemStatus" class="form-control" required>
+                <option value="">Choose status</option>
+                @foreach (var status in Enum.GetValues(typeof(ToDoItemStatus)))
+                {
+                    <option value="@status">@status</option>
+                }
+            </select>
+            <span asp-validation-for="ToDoItemStatus" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

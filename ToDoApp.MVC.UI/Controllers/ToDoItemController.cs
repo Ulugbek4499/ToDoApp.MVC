@@ -5,8 +5,6 @@ using ToDoApp.Application.UseCases.ToDoItems.Commands.DeleteToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
-using ToDoApp.Application.UseCases.ToDoLists.Commands.UpdateToDoList;
-using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoLists;
 using ToDoApp.MVC.Controllers;
 
@@ -51,6 +49,8 @@ namespace ToDoApp.MVC.UI.Controllers
         public async ValueTask<IActionResult> UpdateToDoItem(Guid Id)
         {
             var toDoItem = await Mediator.Send(new GetToDoItemQuery(Id));
+            ToDoListDto[] toDoLists = await Mediator.Send(new GetToDoListsQuery());
+            ViewData["ToDoLists"] = toDoLists;
 
             return View(toDoItem);
         }

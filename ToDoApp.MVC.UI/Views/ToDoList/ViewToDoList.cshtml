@@ -32,7 +32,7 @@
                                             <td>@toDoItem.Title</td>
                                             <td>@toDoItem.ToDoItemStatus</td>
                                             <td class="action-links">
-                                                <a href="@Url.Action("Update", toDoItem)">Edit</a>
+                                                <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })">Edit</a>
                                                 <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })">Details</a>
                                                 <a href="@Url.Action("DeleteToDoItem", new { id = toDoItem.Id })">Delete</a>
                                             </td>
