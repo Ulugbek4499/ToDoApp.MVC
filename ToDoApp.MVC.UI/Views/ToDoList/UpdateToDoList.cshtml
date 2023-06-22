@@ -1,23 +1,23 @@
 ﻿@using ToDoApp.Application.UseCases.ToDoLists.Commands.UpdateToDoList;
 @using ToDoApp.Application.Commons.Models;
 @using ToDoApp.Domain.Entities;
+@model ToDoListDto
 
 @{
     ViewData["Title"] = "UpdateToDoList";
-    Layout = "_Layout";
+   // Layout = "_Layout";
 }
 
-@model ToDoListDto
 
 <h1>Edit ToDoList</h1>
 
 <div class="form-container">
-    <form asp-action="UpdateToDoList" method="post">
+    <form asp-action="UpdateToDoList" asp-controller="ToDoList" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" />
 
         <div class="form-group">
             <label asp-for="Name">Name:</label>
-            <input asp-for="Name" class="form-control" required value="@Model.Name"/>
+            <input asp-for="Name" class="form-control" required value="@Model.Name" />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 

@@ -25,12 +25,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var toDoList in Model)
+                @foreach (var toDoList in @Model)
                 {
                     <tr>
                         <td>@toDoList.Name</td>
                         <td class="action-links">
-                            <a href="@Url.Action("EditToDoList", new { id = toDoList.Id })">Edit</a>
+                            <a href="@Url.Action("UpdateToDoList",  new { id = toDoList.Id })">Edit</a>
                             <a href="@Url.Action("ViewToDoList", new { id = toDoList.Id })">Details</a>
                             <a href="@Url.Action("DeleteToDoList", new { id = toDoList.Id })">Delete</a>
                         </td>

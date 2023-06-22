@@ -41,50 +41,23 @@ namespace ToDoApp.MVC.Controllers
             return View("ViewToDoList", toDoList);
         }
 
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> UpdateToDoList(ToDoListDto toDoListDto)
-        {
-            return View(toDoListDto);
-        }
 
-        [HttpPost("[action]")]
-        public async ValueTask<IActionResult> UpdateToDoList([FromForm] UpdateToDoListCommand toDoList)
+        [HttpGet]
+        public async ValueTask<IActionResult> UpdateToDoList(Guid Id) 
         {
-            await Mediator.Send(toDoList);
+            var toDoList = await Mediator.Send(new GetToDoListQuery(Id));
+
+            return View(toDoList);
+        } 
+
+        [HttpPost]
+        public async ValueTask<IActionResult> UpdateToDoList([FromForm] UpdateToDoListCommand ToDoList)
+        {
+            await Mediator.Send(ToDoList);
             return RedirectToAction("GetAllToDoLists");
         }
 
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> EditToDoList(Guid id)
-        {
-            var toDoList = await Mediator.Send(new GetToDoListQuery(id));
-
-            EditToDoListModelView modelView = new EditToDoListModelView()
-            {
-                Id = toDoList.Id,
-                Name = toDoList.Name
-            };
-
-            return View(modelView);
-        }
-
-        [HttpPost("[action]")]
-        public async ValueTask<IActionResult> EditToDoList(EditToDoListModelView modelView)
-        {
-            if (ModelState.IsValid)
-            {
-                ToDoListDto toDoList = new ToDoListDto()
-                {
-                    Id = modelView.Id,
-                    Name = modelView.Name
-                };
-                await Mediator.Send(toDoList);
-
-                return RedirectToAction("ViewToDoList", toDoList);
-            }
-            return View();
-        }
-
+ 
         public async ValueTask<IActionResult> DeleteToDoList(Guid Id)
         {
             await Mediator.Send(new DeleteToDoListCommand(Id));
