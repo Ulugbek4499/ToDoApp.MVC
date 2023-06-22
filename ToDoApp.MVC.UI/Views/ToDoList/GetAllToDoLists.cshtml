@@ -30,6 +30,7 @@
                     <tr>
                         <td>@toDoList.Name</td>
                         <td class="action-links">
+
                             <a href="@Url.Action("UpdateToDoList",  new { id = toDoList.Id })">Edit</a>
                             <a href="@Url.Action("ViewToDoList", new { id = toDoList.Id })">Details</a>
                             <a href="@Url.Action("DeleteToDoList", new { id = toDoList.Id })">Delete</a>

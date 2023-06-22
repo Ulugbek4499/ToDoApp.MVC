@@ -21,6 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 40%;">Title</th>
+                                        <th style="width: 40%;">DueDate</th>
                                         <th style="width: 40%;">Status</th>
                                         <th style="width: 10%;">Actions</th>
                                     </tr>
@@ -30,6 +31,7 @@
                                     {
                                         <tr>
                                             <td>@toDoItem.Title</td>
+                                            <td>@toDoItem.DueDate</td>
                                             <td>@toDoItem.ToDoItemStatus</td>
                                             <td class="action-links">
                                                 <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })">Edit</a>

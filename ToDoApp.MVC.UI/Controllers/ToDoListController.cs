@@ -5,7 +5,6 @@ using ToDoApp.Application.UseCases.ToDoLists.Commands.DeleteToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Commands.UpdateToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoLists;
-using ToDoApp.MVC.UI.Models;
 
 namespace ToDoApp.MVC.Controllers
 {
@@ -42,7 +41,7 @@ namespace ToDoApp.MVC.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> UpdateToDoList(Guid Id) 
         {
             var toDoList = await Mediator.Send(new GetToDoListQuery(Id));
@@ -50,7 +49,7 @@ namespace ToDoApp.MVC.Controllers
             return View(toDoList);
         } 
 
-        [HttpPost]
+        [HttpPost("[action]")]
         public async ValueTask<IActionResult> UpdateToDoList([FromForm] UpdateToDoListCommand ToDoList)
         {
             await Mediator.Send(ToDoList);
