@@ -7,14 +7,19 @@
 
 @model CreateToDoListCommand
 
-<h3>Create ToDoList</h3>
+<h3 class="text-center">Add new ToDoList</h3>
+<hr />
 
-<form asp-action="CreateToDoList" method="post">
-    <div class="form-group">
-        <label asp-for="Name">ToDoList Name:</label>
-        <input asp-for="Name" class="form-control" required />
-        <span asp-validation-for="Name" class="text-danger"></span>
+<form asp-controller="ToDoList" asp-action="CreateToDoList" enctype="multipart/form-data" method="post">
+    <div class="container mt-3 custom-input">
+        <label asp-for="Name" class="form-label">Name</label>
+        <div class="input-group mb-3">
+            <input asp-for="Name" type="text" class="form-control">
+        </div>
+        <span asp-validation-for="Name" class="text-danger"></span><br>
     </div>
-
-    <button type="submit" class="btn btn-primary">Create</button>
+    <div class="button-group">
+        <button class="btn btn-dark">Cancel</button>
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
 </form>
