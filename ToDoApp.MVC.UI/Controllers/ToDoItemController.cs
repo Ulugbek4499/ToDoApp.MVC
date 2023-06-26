@@ -5,6 +5,11 @@ using ToDoApp.Application.UseCases.ToDoItems.Commands.DeleteToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsCompleted;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsInProgress;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsNotStarted;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsToday;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsWeek;
 using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoLists;
 using ToDoApp.MVC.Controllers;
 
@@ -29,13 +34,6 @@ namespace ToDoApp.MVC.UI.Controllers
         }
 
 
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoItems()
-        {
-            ToDoItemDto[] toDoItems = await Mediator.Send(new GetTodaysToDoItemsQuery());
-
-            return View(toDoItems);
-        }
 
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> ViewToDoItem(Guid id)
@@ -67,6 +65,54 @@ namespace ToDoApp.MVC.UI.Controllers
             await Mediator.Send(new DeleteToDoItemCommand(Id));
 
             return RedirectToAction("GetAllToDoItems");
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItems()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsQuery());
+
+            return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItemsToday()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsTodayQuery());
+
+            return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItemsWeek()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsWeekQuery());
+
+            return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItemsCompleted()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsCompletedQuery());
+
+            return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItemsInProgress()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsInProgressQuery());
+
+            return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoItemsNotStarted()
+        {
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsNotStartedQuery());
+
+            return View(toDoItems);
         }
     }
 }

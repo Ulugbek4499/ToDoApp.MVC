@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ToDoApp.Application.Commons.Interfaces;
 using ToDoApp.Application.Commons.Models;
-using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
 using ToDoApp.Domain.Entities;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsToday

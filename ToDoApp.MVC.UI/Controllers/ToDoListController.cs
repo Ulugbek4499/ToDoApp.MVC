@@ -62,39 +62,6 @@ namespace ToDoApp.MVC.Controllers
             return View("ViewToDoList", toDoList);
         }
 
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoListsToday()
-        {
-
-            return View();
-        }
-
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoListsWeek()
-        {
-
-            return View();
-        }
-
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoListsCompleted()
-        {
-
-            return View();
-        }
-
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoListsInProgress()
-        {
-
-            return View();
-        }
-
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllToDoListsNotStarted()
-        {
-
-            return View();
-        }
+       
     }
 }
