@@ -27,7 +27,7 @@ namespace ToDoApp.WebApi.Controllers
         [HttpGet("[action]")]
         public async ValueTask<ActionResult<ToDoItemDto[]>> GetAllToDoItem()
         {
-            return await Mediator.Send(new GetTodaysToDoItemsQuery());
+            return await Mediator.Send(new GetToDoItemsQuery());
         }
 
 
