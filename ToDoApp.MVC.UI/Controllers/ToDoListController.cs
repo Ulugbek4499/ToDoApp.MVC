@@ -25,6 +25,28 @@ namespace ToDoApp.MVC.Controllers
         }
 
         [HttpGet("[action]")]
+        public async ValueTask<IActionResult> UpdateToDoList(Guid Id)
+        {
+            var toDoList = await Mediator.Send(new GetToDoListQuery(Id));
+
+            return View(toDoList);
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<IActionResult> UpdateToDoList([FromForm] UpdateToDoListCommand ToDoList)
+        {
+            await Mediator.Send(ToDoList);
+            return RedirectToAction("GetAllToDoLists");
+        }
+
+        public async ValueTask<IActionResult> DeleteToDoList(Guid Id)
+        {
+            await Mediator.Send(new DeleteToDoListCommand(Id));
+
+            return RedirectToAction("GetAllToDoLists");
+        }
+
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> GetAllToDoLists()
         {
             ToDoListDto[] toDoLists = await Mediator.Send(new GetToDoListsQuery());
@@ -40,28 +62,39 @@ namespace ToDoApp.MVC.Controllers
             return View("ViewToDoList", toDoList);
         }
 
-
         [HttpGet("[action]")]
-        public async ValueTask<IActionResult> UpdateToDoList(Guid Id) 
+        public async ValueTask<IActionResult> GetAllToDoListsToday()
         {
-            var toDoList = await Mediator.Send(new GetToDoListQuery(Id));
 
-            return View(toDoList);
-        } 
-
-        [HttpPost("[action]")]
-        public async ValueTask<IActionResult> UpdateToDoList([FromForm] UpdateToDoListCommand ToDoList)
-        {
-            await Mediator.Send(ToDoList);
-            return RedirectToAction("GetAllToDoLists");
+            return View();
         }
 
- 
-        public async ValueTask<IActionResult> DeleteToDoList(Guid Id)
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoListsWeek()
         {
-            await Mediator.Send(new DeleteToDoListCommand(Id));
 
-            return RedirectToAction("GetAllToDoLists");
+            return View();
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoListsCompleted()
+        {
+
+            return View();
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoListsInProgress()
+        {
+
+            return View();
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllToDoListsNotStarted()
+        {
+
+            return View();
         }
     }
 }
