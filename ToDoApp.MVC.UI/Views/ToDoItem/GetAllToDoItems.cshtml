@@ -4,7 +4,10 @@
 
 @model ToDoApp.Application.Commons.Models.ToDoItemDto[]
 
-<h3 class="text-center">All ToDoLists </h3>
+<h3 class="text-center">All ToDoItems </h3>
+<p>
+    <a href="@Url.Action("CreateToDoItem")" class="btn btn-primary">CreateToDoItem</a>
+</p>
 <hr />
 
 <div class="custom-cards">
@@ -34,9 +37,9 @@
                         <td>@toDoItem.DueDate</td>
                         <td>@toDoItem.ToDoItemStatus</td>
                         <td class="action-links">
-                            <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })">Edit</a>
-                            <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })">Details</a>
-                            <a href="@Url.Action("DeleteToDoItem", new { id = toDoItem.Id })">Delete</a>
+                            <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })" class="btn btn-secondary">Details</a>
+                            <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("DeleteToDoItem", new { id = toDoItem.Id })" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }
@@ -45,6 +48,3 @@
     </div>
 </div>
 
-<p>
-    <a href="@Url.Action("CreateToDoItem")" class="btn btn-primary">CreateToDoItem</a>
-</p>

@@ -32,7 +32,7 @@ namespace ToDoApp.MVC.UI.Controllers
         [HttpGet("[action]")]
         public async ValueTask<IActionResult> GetAllToDoItems()
         {
-            ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsQuery());
+            ToDoItemDto[] toDoItems = await Mediator.Send(new GetTodaysToDoItemsQuery());
 
             return View(toDoItems);
         }

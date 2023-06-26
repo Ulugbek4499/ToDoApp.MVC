@@ -5,6 +5,9 @@
 @model ToDoListDto[]
 
 <h3 class="text-center">All ToDoLists </h3>
+<p>
+    <a href="@Url.Action("CreateToDoList")" class="btn btn-primary">CreateToDoList</a>
+</p>
 <hr />
 
 <div class="custom-cards">
@@ -16,6 +19,7 @@
         }
     }
 
+
     <div class="table-container">
         <table class="table">
             <thead>
@@ -25,15 +29,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var toDoList in @Model)
+                @foreach (var toDoList in Model)
                 {
                     <tr>
                         <td>@toDoList.Name</td>
                         <td class="action-links">
-
-                            <a href="@Url.Action("UpdateToDoList",  new { id = toDoList.Id })">Edit</a>
-                            <a href="@Url.Action("ViewToDoList", new { id = toDoList.Id })">Details</a>
-                            <a href="@Url.Action("DeleteToDoList", new { id = toDoList.Id })">Delete</a>
+                            <a href="@Url.Action("ViewToDoList", new { id = toDoList.Id })" class="btn btn-secondary">Details</a>
+                            <a href="@Url.Action("UpdateToDoList", new { id = toDoList.Id })" class="btn btn-primary">Edit</a>
+                            <a href="@Url.Action("DeleteToDoList", new { id = toDoList.Id })" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }
@@ -42,6 +45,3 @@
     </div>
 </div>
 
-<p>
-    <a href="@Url.Action("CreateToDoList")" class="btn btn-primary">CreateToDoList</a>
-</p>

@@ -70,3 +70,38 @@ main {
     .la-group a {
         font-size: 1.1rem;
     }
+
+.table-container {
+    margin-top: 20px;
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.table td {
+    vertical-align: middle;
+}
+.action-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .action-links a {
+        margin-left: 10px;
+    }
+
+        .action-links a.btn {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+.create-button {
+    text-align: right;
+    margin-top: 20px;
+}
+
+    .create-button a.btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
