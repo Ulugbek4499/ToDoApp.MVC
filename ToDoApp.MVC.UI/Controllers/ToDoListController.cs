@@ -61,7 +61,5 @@ namespace ToDoApp.MVC.Controllers
 
             return View("ViewToDoList", toDoList);
         }
-
-       
     }
 }
