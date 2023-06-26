@@ -12,6 +12,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
+        public string Note { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
         public ToDoItemStatus ToDoItemStatus { get; set; }
@@ -43,6 +44,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
 
             maybeToDoItem.Title = request.Title;
             maybeToDoItem.Description = request.Description;
+            maybeToDoItem.Note = request.Note;
             maybeToDoItem.DueDate = request.DueDate;
             maybeToDoItem.ToDoItemStatus = request.ToDoItemStatus;
             maybeToDoItem.ToDoList = maybeToDoList;

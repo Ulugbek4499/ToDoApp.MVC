@@ -19,6 +19,10 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
               .MaximumLength(50)
               .WithMessage("Description is required");
 
+            RuleFor(d => d.Note).NotEmpty()
+              .MaximumLength(50)
+              .WithMessage("Note is required");
+
             RuleFor(d => d.DueDate)
                .NotEqual((DateTime)default)
                .WithMessage("Due Date is required.");

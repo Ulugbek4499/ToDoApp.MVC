@@ -12,6 +12,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Note { get; set; }
         public DateTime DueDate { get; set; }
         public ToDoItemStatus ToDoItemStatus { get; set; }
         public Guid ToDoListId { get; set; }
@@ -39,6 +40,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
             {
                 Title = request.Title,
                 Description = request.Description,
+                Note =request.Note,
                 DueDate = request.DueDate,
                 ToDoItemStatus = request.ToDoItemStatus,
                 ToDoList = maybeTodoList

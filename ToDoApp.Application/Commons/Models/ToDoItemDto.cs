@@ -7,6 +7,7 @@ namespace ToDoApp.Application.Commons.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Note { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime DueDate { get; set; }
         public ToDoItemStatus ToDoItemStatus { get; set; }
