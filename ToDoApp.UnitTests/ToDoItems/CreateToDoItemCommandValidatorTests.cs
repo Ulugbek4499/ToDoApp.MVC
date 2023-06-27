@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bogus;
+﻿using Bogus;
 using FluentAssertions;
 using FluentValidation.TestHelper;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem;
@@ -13,6 +8,7 @@ namespace ToDoApp.UnitTests.ToDoItems
 {
     public class CreateToDoItemCommandValidatorTests
     {
+
         [Theory]
         [InlineData(null)]
         [InlineData(" ")]
@@ -111,7 +107,53 @@ namespace ToDoApp.UnitTests.ToDoItems
             result.ShouldHaveValidationErrorFor(item => item.Description);
         }
 
-        // Write similar tests for DescriptionLengthIsMoreThan50 and DescriptionLengthIsEqualTo50
+        [Fact]
+        public void CreateToDoItemCommandValidator_IfDescriptionLengthIsMoreThan300_ShouldThrowValidationException()
+        {
+            // Arrange
+            string description = new Faker().Random.String2(301);
+
+            var validator = new CreateToDoItemCommandValidator();
+
+            var createToDoItemCommand = new CreateToDoItemCommand()
+            {
+                Title = "Sample Title",
+                Description = description,
+                Note = "Sample note",
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(createToDoItemCommand);
+
+            // Assert
+            result.ShouldHaveValidationErrorFor(item => item.Description);
+        }
+
+        [Fact]
+        public void CreateToDoItemCommandValidator_IfDescriptionLengthIsEqualTo300_ShouldSuccess()
+        {
+            // Arrange
+            string description = new Faker().Random.String2(300);
+
+            var validator = new CreateToDoItemCommandValidator();
+
+            var createToDoItemCommand = new CreateToDoItemCommand()
+            {
+                Title = "Sample Title",
+                Description = description,
+                Note = "Sample note",
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(createToDoItemCommand);
+
+            // Assert
+            result.IsValid.Should().BeTrue();
+        }
 
         [Theory]
         [InlineData(null)]
