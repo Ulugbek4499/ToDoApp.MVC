@@ -6,15 +6,18 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
     {
         public CreateToDoItemCommandValidator()
         {
-            RuleFor(d => d.Title).NotEmpty()
+            RuleFor(d => d.Title)
+              .NotEmpty()
               .MaximumLength(50)
               .WithMessage("Title is required");
 
-            RuleFor(d => d.Description).NotEmpty()
+            RuleFor(d => d.Description)
+              .NotEmpty()
               .MaximumLength(50)
               .WithMessage("Description is required");
 
-            RuleFor(d => d.Note).NotEmpty()
+            RuleFor(d => d.Note)
+             .NotEmpty()
              .MaximumLength(50)
              .WithMessage("Note is required");
 
