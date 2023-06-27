@@ -3,6 +3,17 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to ToDoApplication</h1>
+
+    <div class="button-container">
+        <a asp-controller="ToDoList" asp-action="GetAllToDoLists" class="btn btn-primary">ToDoLists</a>
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItems" class="btn btn-primary">ToDoItems</a>
+        <a asp-controller="ToDoItem" asp-action="GetAllInforamtionRemider" class="btn btn-primary">Quick Reminder</a>
+    </div>
 </div>
+
+<style>
+    .button-container {
+        margin-top: 20px;
+    }
+</style>

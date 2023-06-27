@@ -1,0 +1,95 @@
+﻿@*@{
+    Layout = "_Layout";
+}
+
+@model int[]
+
+<div class="text-center">
+
+    @{
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsToday" class="nav-link">Today you have @Model[0] tasks</a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsWeek" class="nav-link">Tasks for This Week: @Model[1]</a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItems" class="nav-link">All Tasks : @Model[2]</a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsCompleted" class="nav-link">Completed Tasks : @Model[3]</a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsNotStarted" class="nav-link">NotStarted Tasks : @Model[5]</a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsInProgress" class="nav-link">InProgress Tasks : @Model[4]</a>
+    }
+</div>
+
+*@
+
+@{
+    Layout = "_Layout";
+}
+
+@model int[]
+
+<div class="text-center">
+
+    <h1 class="display-4">Hello you have @Model[0] tasks for today </h1>
+
+    <div class="task-categories">
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsToday" class="category-link">
+            <span class="category-name">Today's Tasks:</span>
+            <span class="task-count">@Model[0]</span>
+        </a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsWeek" class="category-link">
+            <span class="category-name">Tasks for This Week:</span>
+            <span class="task-count">@Model[1]</span>
+        </a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItems" class="category-link">
+            <span class="category-name">All Tasks:</span>
+            <span class="task-count">@Model[2]</span>
+        </a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsCompleted" class="category-link">
+            <span class="category-name">Completed Tasks:</span>
+            <span class="task-count">@Model[3]</span>
+        </a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsNotStarted" class="category-link">
+            <span class="category-name">Not Started Tasks:</span>
+            <span class="task-count">@Model[4]</span>
+        </a>
+
+        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsInProgress" class="category-link">
+            <span class="category-name">In Progress Tasks:</span>
+            <span class="task-count">@Model[5]</span>
+        </a>
+    </div>
+
+</div>
+
+<style>
+    .category-link {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s ease;
+    }
+
+        .category-link:hover {
+            background-color: #e0e0e0;
+        }
+
+    .category-name {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .task-count {
+        font-weight: bold;
+        color: #007bff;
+    }
+</style>

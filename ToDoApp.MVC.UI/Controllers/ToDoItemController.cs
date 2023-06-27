@@ -3,6 +3,7 @@ using ToDoApp.Application.Commons.Models;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.DeleteToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
+using ToDoApp.Application.UseCases.ToDoItems.Queries.GetInformationAboutToDoItems;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsCompleted;
@@ -113,6 +114,14 @@ namespace ToDoApp.MVC.UI.Controllers
             ToDoItemDto[] toDoItems = await Mediator.Send(new GetToDoItemsNotStartedQuery());
 
             return View(toDoItems);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllInforamtionRemider()
+        {
+            int[] information = await Mediator.Send(new GetInformationAboutToDoItemsQuery());
+
+            return View(information);
         }
     }
 }
