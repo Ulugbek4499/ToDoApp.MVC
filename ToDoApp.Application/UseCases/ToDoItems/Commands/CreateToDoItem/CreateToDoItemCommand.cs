@@ -40,7 +40,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
             {
                 Title = request.Title,
                 Description = request.Description,
-                Note =request.Note,
+                Note = request.Note,
                 DueDate = request.DueDate,
                 ToDoItemStatus = request.ToDoItemStatus,
                 ToDoList = maybeTodoList

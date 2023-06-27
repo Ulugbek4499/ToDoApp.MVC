@@ -2,7 +2,6 @@
 using FluentAssertions;
 using FluentValidation.TestHelper;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
-using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
 using Xunit;
 
 namespace ToDoApp.UnitTests.ToDoItems

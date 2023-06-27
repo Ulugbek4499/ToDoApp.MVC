@@ -6,7 +6,7 @@ using Xunit;
 
 namespace ToDoApp.UnitTests.ToDoLists
 {
-    public class UpdateToDoListCommandValidatorTest
+    public partial class UpdateToDoListCommandValidatorTest
     {
         [Theory]
         [InlineData(null)]

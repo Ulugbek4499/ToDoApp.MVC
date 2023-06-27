@@ -248,7 +248,7 @@ namespace ToDoApp.UnitTests.ToDoItems
             // Assert
             result.ShouldHaveValidationErrorFor(item => item.DueDate);
         }
-        
+
         [Fact]
         public void CreateToDoItemCommandValidator_IfDueDateIsToday_ShouldSuccess()
         {

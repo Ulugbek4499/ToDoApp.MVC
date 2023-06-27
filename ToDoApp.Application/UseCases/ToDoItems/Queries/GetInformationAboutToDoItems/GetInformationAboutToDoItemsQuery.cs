@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ToDoApp.Application.Commons.Interfaces;
-using ToDoApp.Application.Commons.Models;
-using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItems;
 using ToDoApp.Domain.Entities;
 using ToDoApp.Domain.States;
 
 namespace ToDoApp.Application.UseCases.ToDoItems.Queries.GetInformationAboutToDoItems
 {
-    public record GetInformationAboutToDoItemsQuery: IRequest<int[]>;
+    public record GetInformationAboutToDoItemsQuery : IRequest<int[]>;
 
     public class GetInformationAboutToDoItemsQueryHandler : IRequestHandler<GetInformationAboutToDoItemsQuery, int[]>
     {
@@ -63,7 +56,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Queries.GetInformationAboutToDo
                 InProgressToDoItems.Count(),
                 NotStartedToDoItems.Count(),
             };
-                
+
             return result;
         }
     }
