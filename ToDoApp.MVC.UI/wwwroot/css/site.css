@@ -105,3 +105,21 @@ main {
         font-size: 16px;
         padding: 10px 20px;
     }
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: yellow;
+}
+
+.sidebar .nav-link {
+    color: white;
+}
+
+    .sidebar .nav-link:hover {
+        color: yellow;
+    }
+
