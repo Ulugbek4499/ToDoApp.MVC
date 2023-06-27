@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using FluentAssertions;
 using FluentValidation.TestHelper;
-using ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem;
+using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
 using ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem;
 using Xunit;
 
@@ -156,7 +156,55 @@ namespace ToDoApp.UnitTests.ToDoItems
             result.ShouldHaveValidationErrorFor(item => item.Description);
         }
 
-        // Write similar tests for DescriptionLengthIsMoreThan50 and DescriptionLengthIsEqualTo50
+        [Fact]
+        public void UpdateToDoItemCommandValidator_IfDescriptionLengthIsMoreThan300_ShouldThrowValidationException()
+        {
+            // Arrange
+            string description = new Faker().Random.String2(301);
+
+            var validator = new UpdateToDoItemCommandValidator();
+
+            var UpdateToDoItemCommand = new UpdateToDoItemCommand()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Sample Title",
+                Description = description,
+                Note = "Sample note",
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(UpdateToDoItemCommand);
+
+            // Assert
+            result.ShouldHaveValidationErrorFor(item => item.Description);
+        }
+
+        [Fact]
+        public void UpdateToDoItemCommandValidator_IfDescriptionLengthIsEqualTo300_ShouldSuccess()
+        {
+            // Arrange
+            string description = new Faker().Random.String2(300);
+
+            var validator = new UpdateToDoItemCommandValidator();
+
+            var UpdateToDoItemCommand = new UpdateToDoItemCommand()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Sample Title",
+                Description = description,
+                Note = "Sample note",
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(UpdateToDoItemCommand);
+
+            // Assert
+            result.IsValid.Should().BeTrue();
+        }
 
         [Theory]
         [InlineData(null)]
@@ -182,6 +230,56 @@ namespace ToDoApp.UnitTests.ToDoItems
 
             // Assert
             result.ShouldHaveValidationErrorFor(item => item.Note);
+        }
+
+        [Fact]
+        public void UpdateToDoItemCommandValidator_IfNoteLengthIsMoreThan300_ShouldThrowValidationException()
+        {
+            // Arrange
+            string note = new Faker().Random.String2(301);
+
+            var validator = new UpdateToDoItemCommandValidator();
+
+            var UpdateToDoItemCommand = new UpdateToDoItemCommand()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Sample Title",
+                Description = "Sample Description",
+                Note = note,
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(UpdateToDoItemCommand);
+
+            // Assert
+            result.ShouldHaveValidationErrorFor(item => item.Note);
+        }
+
+        [Fact]
+        public void UpdateToDoItemCommandValidator_IfNoteLengthIsEqualTo300_ShouldSuccess()
+        {
+            // Arrange
+            string note = new Faker().Random.String2(300);
+
+            var validator = new UpdateToDoItemCommandValidator();
+
+            var UpdateToDoItemCommand = new UpdateToDoItemCommand()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Sample Title",
+                Description = "Sample Description",
+                Note = note,
+                DueDate = DateTime.Now.AddDays(1),
+                ToDoListId = Guid.NewGuid()
+            };
+
+            // Act
+            var result = validator.TestValidate(UpdateToDoItemCommand);
+
+            // Assert
+            result.IsValid.Should().BeTrue();
         }
 
         [Fact]
@@ -229,7 +327,6 @@ namespace ToDoApp.UnitTests.ToDoItems
             // Assert
             result.ShouldHaveValidationErrorFor(item => item.ToDoListId);
         }
-
 
         [Fact]
         public void UpdateToDoItemCommandValidator_IfToDoListIdIsEmpty_ShouldThrowValidationException()

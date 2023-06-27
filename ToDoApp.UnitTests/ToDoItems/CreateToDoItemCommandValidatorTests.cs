@@ -8,7 +8,6 @@ namespace ToDoApp.UnitTests.ToDoItems
 {
     public class CreateToDoItemCommandValidatorTests
     {
-
         [Theory]
         [InlineData(null)]
         [InlineData(" ")]
