@@ -2,8 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
     <h1 class="display-4">Welcome to ToDoApplication</h1>
+
+    <div class="d-flex align-items-center justify-content-center" id="main">
+        <img src="/school.jpg" height="350px" />
+    </div>
 
     <div class="button-container">
         <a asp-controller="ToDoList" asp-action="GetAllToDoLists" class="btn btn-primary">ToDoLists</a>

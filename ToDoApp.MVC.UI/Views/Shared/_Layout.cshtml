@@ -33,7 +33,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position:fixed;top:0; width:100%; z-index:1">
             <div class="container-fluid mx-4">
                 <a asp-controller="Home" asp-action="Index" class="navbar-brand">ToDoApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -57,9 +57,9 @@
         </nav>
     </header>
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top:50px; position:fixed">
         <div class="row">
-            <aside class="bg-dark text-light col-2 sidebar" style="height: 100vh;">
+            <aside class="bg-dark text-light col-2 sidebar" style="height: 100vh; width:125px">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsToday" class="nav-link">Today</a>
@@ -82,7 +82,7 @@
                 </ul>
             </aside>
 
-            <main class="col-10">
+            <main class="col-10 " style="position:sticky; overflow:scroll; overflow-x:hidden; height:400px">
                 <div class="container mt-3">
                     @RenderBody()
                 </div>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <footer class="py-1 bg-dark border-top mt-5">
+    <footer class="py-1 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
         <p class="text-center text-light pt-3">
             &copy; 2023 - ToDoApp.MVC.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-light">Privacy</a>
         </p>
