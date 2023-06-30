@@ -15,7 +15,6 @@
                 <div class="card-body m-3">
                     <h5 class="card-title">@Model.Name</h5>
                     <p class="card-text">
-                        @Model.ToDoItems
                         <div class="table-container">
                             <table class="table">
                                 <thead>
@@ -34,9 +33,9 @@
                                             <td>@toDoItem.DueDate</td>
                                             <td>@toDoItem.ToDoItemStatus</td>
                                             <td class="action-links">
-                                                <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })">Edit</a>
-                                                <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })">Details</a>
-                                                <a href="@Url.Action("DeleteToDoItem", new { id = toDoItem.Id })">Delete</a>
+                                                <a href="@Url.Action("ViewToDoItem", new { id = toDoItem.Id })" class="btn btn-secondary">Details</a>
+                                                <a href="@Url.Action("UpdateToDoItem", new { id = toDoItem.Id })" class="btn btn-primary">Edit</a>
+                                                <a href="@Url.Action("DeleteToDoItem", new { id = toDoItem.Id })" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     }
