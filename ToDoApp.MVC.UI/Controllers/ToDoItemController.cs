@@ -11,6 +11,7 @@ using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsInProgress;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsNotStarted;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsToday;
 using ToDoApp.Application.UseCases.ToDoItems.Queries.GetToDoItemsWeek;
+using ToDoApp.Application.UseCases.ToDoLists.Commands.DeleteToDoList;
 using ToDoApp.Application.UseCases.ToDoLists.Queries.GetToDoLists;
 using ToDoApp.MVC.Controllers;
 
@@ -44,7 +45,7 @@ namespace ToDoApp.MVC.UI.Controllers
             return View("ViewToDoItem", toDoItem);
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> UpdateToDoItem(Guid Id)
         {
             var toDoItem = await Mediator.Send(new GetToDoItemQuery(Id));
@@ -54,13 +55,14 @@ namespace ToDoApp.MVC.UI.Controllers
             return View(toDoItem);
         }
 
-        [HttpPost]
+        [HttpPost("[action]")]
         public async ValueTask<IActionResult> UpdateToDoItem([FromForm] UpdateToDoItemCommand ToDoItem)
         {
             await Mediator.Send(ToDoItem);
             return RedirectToAction("GetAllToDoItems");
         }
 
+      
         public async ValueTask<IActionResult> DeleteToDoItem(Guid Id)
         {
             await Mediator.Send(new DeleteToDoItemCommand(Id));

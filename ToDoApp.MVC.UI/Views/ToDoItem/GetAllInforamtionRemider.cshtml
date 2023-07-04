@@ -1,29 +1,4 @@
-﻿@*@{
-    Layout = "_Layout";
-}
-
-@model int[]
-
-<div class="text-center">
-
-    @{
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsToday" class="nav-link">Today you have @Model[0] tasks</a>
-
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsWeek" class="nav-link">Tasks for This Week: @Model[1]</a>
-
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItems" class="nav-link">All Tasks : @Model[2]</a>
-
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsCompleted" class="nav-link">Completed Tasks : @Model[3]</a>
-
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsNotStarted" class="nav-link">NotStarted Tasks : @Model[5]</a>
-
-        <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsInProgress" class="nav-link">InProgress Tasks : @Model[4]</a>
-    }
-</div>
-
-*@
-
-@{
+﻿@{
     Layout = "_Layout";
 }
 
