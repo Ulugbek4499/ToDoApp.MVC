@@ -11,15 +11,21 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
                .NotEqual((Guid)default)
                .WithMessage("ToDoItem Id is required.");
 
-            RuleFor(d => d.Title).NotEmpty()
+            RuleFor(d => d.Title)
+             .NotEmpty()
+             .MinimumLength(3)
              .MaximumLength(50)
              .WithMessage("Title is required");
 
-            RuleFor(d => d.Description).NotEmpty()
+            RuleFor(d => d.Description)
+              .NotEmpty()
+               .MinimumLength(3)
               .MaximumLength(300)
               .WithMessage("Description is required");
 
-            RuleFor(d => d.Note).NotEmpty()
+            RuleFor(d => d.Note)
+              .NotEmpty()
+              .MinimumLength(3)
               .MaximumLength(300)
               .WithMessage("Note is required");
 

@@ -8,6 +8,8 @@ namespace ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList
         {
             RuleFor(d => d.Name)
                 .NotEmpty()
+                .NotNull()
+                .MinimumLength(4)
                 .MaximumLength(50)
                 .WithMessage("ToDoList name is required");
         }

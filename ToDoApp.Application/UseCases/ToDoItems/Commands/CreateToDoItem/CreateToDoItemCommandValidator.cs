@@ -8,11 +8,13 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
         {
             RuleFor(d => d.Title)
               .NotEmpty()
+              .MinimumLength(3)
               .MaximumLength(50)
               .WithMessage("Title is required");
 
             RuleFor(d => d.Description)
               .NotEmpty()
+              .MinimumLength (3)
               .MaximumLength(300)
               .WithMessage("Description is required");
 

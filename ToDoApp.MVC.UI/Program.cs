@@ -1,5 +1,6 @@
 using ToDoApp.Application;
 using ToDoApp.Infrastructure;
+using ToDoApp.MVC.UI.Services;
 
 namespace ToDoApp.MVC.UI
 {
@@ -10,6 +11,7 @@ namespace ToDoApp.MVC.UI
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             var builder = WebApplication.CreateBuilder(args);
+            SerilogService.SerilogSettings(builder.Configuration);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
