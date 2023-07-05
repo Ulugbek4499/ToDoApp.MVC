@@ -6,9 +6,9 @@
 
 <div class="text-center">
 
-    <h1 class="display-4">Hello you have @Model[0] tasks for today </h1>
+    <h1 class="display-4" style="font-weight: 500" >Hello you have @Model[0] tasks for today </h1>
 
-    <div class="task-categories">
+    <div class="task-categories" style="padding-top:50px">
         <a asp-controller="ToDoItem" asp-action="GetAllToDoItemsToday" class="category-link">
             <span class="category-name">Today's Tasks:</span>
             <span class="task-count">@Model[0]</span>
