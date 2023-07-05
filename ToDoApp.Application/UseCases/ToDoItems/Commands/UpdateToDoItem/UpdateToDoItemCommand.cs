@@ -3,6 +3,7 @@ using MediatR;
 using ToDoApp.Application.Commons.Exceptions;
 using ToDoApp.Application.Commons.Interfaces;
 using ToDoApp.Application.Commons.Models;
+using ToDoApp.Application.UseCases.ToDoItems.Notifications;
 using ToDoApp.Domain.Entities;
 using ToDoApp.Domain.States;
 
@@ -23,11 +24,13 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public UpdateToDoItemCommandHandler(IApplicationDbContext context, IMapper mapper)
+        public UpdateToDoItemCommandHandler(IApplicationDbContext context, IMapper mapper, IMediator mediator)
         {
             _context = context;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         public async Task<ToDoItemDto> Handle(UpdateToDoItemCommand request, CancellationToken cancellationToken)
@@ -50,6 +53,8 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.UpdateToDoItem
             maybeToDoItem.ToDoList = maybeToDoList;
 
             await _context.SaveChangesAsync(cancellationToken);
+
+            await _mediator.Publish(new ToDoItemUpdatedNotification(maybeToDoItem.Title));
 
             return _mapper.Map<ToDoItemDto>(maybeToDoItem);
         }

@@ -15,7 +15,7 @@ namespace ToDoApp.Application.Commons.Behaviours
             {
                 var requestName = typeof(TRequest).Name;
 
-                Log.Error(ex, $"HRMS Request: Unhandled Exception for Request {requestName} {request}\n");
+                Log.Error(ex, $"ToDoApp Request: Unhandled Exception for Request {requestName} {request}\n");
 
                 throw;
             }

@@ -3,6 +3,7 @@ using MediatR;
 using ToDoApp.Application.Commons.Exceptions;
 using ToDoApp.Application.Commons.Interfaces;
 using ToDoApp.Application.Commons.Models;
+using ToDoApp.Application.UseCases.ToDoLists.Notifications;
 using ToDoApp.Domain.Entities;
 
 namespace ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList
@@ -16,11 +17,13 @@ namespace ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public CreateToDoListCommandHandler(IApplicationDbContext context, IMapper mapper)
+        public CreateToDoListCommandHandler(IApplicationDbContext context, IMapper mapper, IMediator mediator)
         {
             _context = context;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         public async Task<ToDoListDto> Handle(CreateToDoListCommand request, CancellationToken cancellationToken)
@@ -38,6 +41,9 @@ namespace ToDoApp.Application.UseCases.ToDoLists.Commands.CreateToDoList
             maybeToDoList = _context.ToDoLists.Add(ToDoList).Entity;
 
             await _context.SaveChangesAsync(cancellationToken);
+
+
+            await _mediator.Publish(new ToDoListCreatedNotification(maybeToDoList.Name));
 
             return _mapper.Map<ToDoListDto>(maybeToDoList);
         }
