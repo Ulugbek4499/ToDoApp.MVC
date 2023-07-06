@@ -14,7 +14,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
 
             RuleFor(d => d.Description)
               .NotEmpty()
-              .MinimumLength (3)
+              .MinimumLength(3)
               .MaximumLength(300)
               .WithMessage("Description is required");
 

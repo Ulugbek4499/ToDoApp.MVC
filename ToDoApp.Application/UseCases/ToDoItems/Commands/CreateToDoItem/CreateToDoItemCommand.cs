@@ -53,7 +53,7 @@ namespace ToDoApp.Application.UseCases.ToDoItems.Commands.CreateToDoItem
             toDoItem = _context.ToDoItems.Add(toDoItem).Entity;
             await _context.SaveChangesAsync(cancellationToken);
 
-            await _mediator.Publish(new ToDoItemCreatedNotification( toDoItem.Title));
+            await _mediator.Publish(new ToDoItemCreatedNotification(toDoItem.Title));
 
             return _mapper.Map<ToDoItemDto>(toDoItem);
         }
