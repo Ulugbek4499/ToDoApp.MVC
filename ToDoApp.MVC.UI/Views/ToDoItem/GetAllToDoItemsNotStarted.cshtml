@@ -4,7 +4,7 @@
 
 @model ToDoApp.Application.Commons.Models.ToDoItemDto[]
 
-<h3 class="text-center">All ToDoItems </h3>
+<h3 class="text-center">NotStarted ToDoItems </h3>
 <p>
     <a href="@Url.Action("CreateToDoItem")" class="btn btn-primary">CreateToDoItem</a>
 </p>
@@ -19,7 +19,7 @@
         }
     }
 
-    <div class="table-container" style="overflow-y:hidden; overflow:auto; height:58vh; width:400px">
+    <div class="table-container">
         <table class="table">
             <thead>
                 <tr>
